@@ -1,4 +1,4 @@
-#tree-dynamic-primefaces
+# tree-dynamic-primefaces
 
 This project show how to create dynamically nodes in a Tree or TreeTable component.
 
@@ -14,9 +14,7 @@ With complex business rules and several data to show in page web, an best practi
 
 **How**
 
-*1)*
-
-Started the list of Children with empty element.
+*1)* Started the list of Children with empty element.
 
 ```
 
