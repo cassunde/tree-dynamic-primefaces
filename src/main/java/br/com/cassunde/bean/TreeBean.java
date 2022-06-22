@@ -2,9 +2,11 @@ package br.com.cassunde.bean;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.event.NodeExpandEvent;
@@ -20,10 +22,17 @@ public class TreeBean implements Serializable {
 
 	private TreeNode tree;
 	
+	@Inject
+	private SalesServices salesServices;
+	
+	@Inject
+	private UsuarioLogado usuarioLogado;
+
 	@PostConstruct
 	public void init() {
 		tree = new DefaultTreeNode();
 		montaTree();
+		usuarioLogado.setName("jurema "+ UUID.randomUUID().toString());
 	}
 	
 	public void montaTree() {
@@ -55,4 +64,24 @@ public class TreeBean implements Serializable {
 	public void setTree(TreeNode tree) {
 		this.tree = tree;
 	}
+	
+	public String button() {
+		System.out.println("clincando no btoao");
+		return "/page?faces-redirect=true";
+	}
+	
+	public void sales() {
+		System.out.println("clincando no botão - Sales");
+		salesServices.save();
+	}
+
+	public UsuarioLogado getUsuarioLogado() {
+		return usuarioLogado;
+	}
+
+	public void setUsuarioLogado(UsuarioLogado usuarioLogado) {
+		this.usuarioLogado = usuarioLogado;
+	}
+	
+	
 }

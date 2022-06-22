@@ -8,6 +8,11 @@
 	<ui:define name="content">
 		<h1 class="aw-page-title">Tree Lazy - Mount Tree dynamic</h1>
 		
+		<label>
+			#{treeBean.usuarioLogado.name}
+		</label>
+		<p:commandButton action = "#{treeBean.button}" value="button" />
+		<p:commandButton action = "#{treeBean.sales}" value="sales" />
 		<h:form id="frm">
 			Tree			
 			<p:tree value="#{treeBean.tree}" var="tree" skipChildren="true" dynamic="true">
