@@ -8,7 +8,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.naming.NamingException;
 
 import org.primefaces.event.NodeExpandEvent;
 import org.primefaces.model.CheckboxTreeNode;
@@ -26,10 +25,10 @@ public class TreeBean implements Serializable {
 	private TreeNode tree;
 	
 	@Inject
-	private SalesServices salesServices;
+	private UsuarioLogado usuarioLogado;
 	
 	@Inject
-	private UsuarioLogado usuarioLogado;
+	private SalesServices salesServices;
 
 	@PostConstruct
 	public void init() {
@@ -73,16 +72,16 @@ public class TreeBean implements Serializable {
 		return "/page?faces-redirect=true";
 	}
 	
-	public void createData() {
-		System.out.println("clincando no botão - Gerar massa");
+	public String criacaoDeDados() {
 		salesServices.createData();
+		return "";
 	}
 	
-	public void getAllData() throws NamingException {
-		System.out.println("clincando no botão - Obter toda a massa");
-		salesServices.getAllData();
+	public String getDados() {
+		salesServices.getAllData("05/2022");
+		return "";
 	}
-
+	
 	public UsuarioLogado getUsuarioLogado() {
 		return usuarioLogado;
 	}
