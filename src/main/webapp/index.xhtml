@@ -12,7 +12,9 @@
 			#{treeBean.usuarioLogado.name}
 		</label>
 		<p:commandButton action = "#{treeBean.button}" value="button" />
-		<p:commandButton action = "#{treeBean.sales}" value="sales" />
+		<p:commandButton action = "#{treeBean.createData}" value="Criar dados" />
+		<p:commandButton action = "#{treeBean.getAllData}" value="Obter todos dos dados" />
+
 		<h:form id="frm">
 			Tree			
 			<p:tree value="#{treeBean.tree}" var="tree" skipChildren="true" dynamic="true">

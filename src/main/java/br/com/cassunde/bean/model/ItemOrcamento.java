@@ -2,13 +2,13 @@ package br.com.cassunde.bean.model;
 
 import java.math.BigDecimal;
 
-public class ProductCart {
+public class ItemOrcamento {
 	
 	private String client;
 	private String address;
 	private BigDecimal amount;
 	
-	public ProductCart(String client, String address, BigDecimal amount) {
+	public ItemOrcamento(String client, String address, BigDecimal amount) {
 		super();
 		this.client = client;
 		this.address = address;

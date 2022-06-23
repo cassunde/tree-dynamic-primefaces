@@ -8,11 +8,14 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.naming.NamingException;
 
 import org.primefaces.event.NodeExpandEvent;
 import org.primefaces.model.CheckboxTreeNode;
 import org.primefaces.model.DefaultTreeNode;
-import org.primefaces.model.TreeNode;;
+import org.primefaces.model.TreeNode;
+
+import br.com.cassunde.services.SalesServices;;
 
 @Named
 @ViewScoped
@@ -70,9 +73,14 @@ public class TreeBean implements Serializable {
 		return "/page?faces-redirect=true";
 	}
 	
-	public void sales() {
-		System.out.println("clincando no botão - Sales");
-		salesServices.save();
+	public void createData() {
+		System.out.println("clincando no botão - Gerar massa");
+		salesServices.createData();
+	}
+	
+	public void getAllData() throws NamingException {
+		System.out.println("clincando no botão - Obter toda a massa");
+		salesServices.getAllData();
 	}
 
 	public UsuarioLogado getUsuarioLogado() {
